@@ -101,3 +101,92 @@ console.log(str.match(regex)); // [ 'Mohmad', index: 11, input: 'my name is Mohm
 regex = /[a-b]{5,}/
 str = 'my name is Mohmad'
 console.log(str.match(regex)); // [ 'Mohmad', index: 11, input: 'my name is Mohmad', groups: undefined ]
+
+// Meta characters
+// \w matches any word character (equal to [a-zA-Z0-9_])
+regex = /\w/;
+str = 'hello world';
+str.match(regex); // [ 'h', index: 0, input: 'hello world', groups: undefined ]
+
+// \W matches any non-word character (equal to [^a-zA-Z0-9_])
+regex = /\W/;
+str = 'hello world';
+str.match(regex); // [ ' ', index: 5, input: 'hello world', groups: undefined ]
+
+// \s matches any whitespaces characters (spaces, tabs, line breaks)
+regex = /\s/
+str = 'hello world';
+str.match(regex); // [ ' ', index: 5, input: 'hello world', groups: undefined ]
+
+// \S matches any non-whitespaces characters
+regex = /\S/
+str = 'hello world';
+str.match(regex); // [ 'h', index: 0, input: 'hello world', groups: undefined ]
+
+// \t matches tab
+regex = /\t/
+str = 'hello world';
+str.match(regex); // null
+
+// special characters
+// + matches the preceding expression 1 or more times
+// ex
+regex = /hello+/
+str = 'hello world';
+str.match(regex); // [ 'hello', index: 0, input: 'hello world', groups: undefined ]
+
+regex = /a[a-z]?/
+str = 'a';
+str.match(regex); // [ 'a', index: 0, input: 'a', groups: undefined ]
+str = 'ab';
+str.match(regex); // [ 'ab', index: 0, input: 'ab', groups: undefined ]
+
+// \ escape character
+
+// . matches any character except line breaks
+regex = /car./
+str = 'car1';
+str.match(regex); // [ 'car1', index: 0, input: 'car1', groups: undefined ]
+str = 'car';
+str.match(regex); // null
+str = 'car ';
+str.match(regex); // [ 'car ', index: 0, input: 'car ', groups: undefined ]
+str = 'car 2'
+str.match(regex); // [ 'car 2', index: 0, input: 'car 2', groups: undefined ]
+str = 'car 2 md'
+str.match(regex); // [ 'car ', index: 0, input: 'car 2 md', groups: undefined ]
+
+// .+ at least one character and it will match all characters
+str = 'car 2 md'
+regex = /car.+/
+str.match(regex); // [ 'car 2 md', index: 0, input: 'car 2 md', groups: undefined ]
+
+// ? matches the preceding expression 0 or 1 time
+regex = /hello?/
+str = 'helli world';
+str.match(regex); // [ 'hell', index: 0, input: 'helli world', groups: undefined ]
+
+// * matches the preceding expression 0 or more times
+regex = /moham*ad/
+str = 'mohammad';
+str.match(regex); // [ 'mohammad', index: 0, input: 'mohammad', groups: undefined ]
+str = 'mohamad';
+str.match(regex); // [ 'mohamad', index: 0, input: 'mohamad', groups: undefined ]
+str = 'mohaad';
+str.match(regex); // [ 'mohaad', index: 0, input: 'mohaad', groups: undefined ]
+
+// a[a-z]* matches a word that starts with a and followed by zero or more characters 
+regex = /a[a-z]*/
+str = 'ahmad';
+str.match(regex); // [ 'ahmad', index: 0, input: 'ahmad', groups: undefined ]
+str = 'ahmad 2';
+str.match(regex); // [ 'ahmad', index: 0, input: 'ahmad 2', groups: undefined ]
+// [] character set
+
+// [^] negated character set
+
+
+// examples
+regex = /\d{3}\s\w{5}/
+str = '123 hello world';
+str.match(regex); // [ '123 hello', index: 0, input: '123 hello world', groups: undefined ]
