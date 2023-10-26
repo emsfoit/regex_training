@@ -4,15 +4,22 @@ console.log(regex.test(str)); // true
 
 // g is used to match more than one occurrence of the pattern
 // example
-regex = /hello/g;
-str = 'hello world hello world';
+// i is used to perform case-insensitive matching
+regex = /mohamad/i
+str = 'Mohamad';
+console.log(regex.test(str)); // true
+str = 'mohamad';
 console.log(regex.test(str)); // true
 
-// i is used to perform case-insensitive matching
-// example
 regex = /hello/i;
 str = 'Hello world';
 console.log(regex.test(str)); // true
+
+// global search
+regex = /mohamad/g
+str = 'Mohamad mohamad';
+console.log(str.match(regex)); // [ 'Mohamad', 'mohamad' ]
+
 
 // ^ is used to match the beginning of a string
 // example
@@ -190,3 +197,30 @@ str.match(regex); // [ 'ahmad', index: 0, input: 'ahmad 2', groups: undefined ]
 regex = /\d{3}\s\w{5}/
 str = '123 hello world';
 str.match(regex); // [ '123 hello', index: 0, input: '123 hello world', groups: undefined ]
+
+// here we are saying our string has to be 5 characters
+regex = /^[a-z]{5}$/
+str = 'hello';
+console.log(regex.test(str)); // true
+str = 'hello world';
+console.log(regex.test(str)); // false
+
+// validating using barenthesis
+regex = /(m|M)ohamad/
+str = 'Mohamad';
+console.log(regex.test(str)); // true
+str = 'mohamad';
+console.log(regex.test(str)); // true
+
+// validating using barenthesis
+regex = /(pet|toy|crazy) rabbit/
+str = 'pet rabbit';
+console.log(regex.test(str)); // true
+str = 'toy rabbit';
+console.log(regex.test(str)); // true
+str = 'crazy rabbit';
+console.log(regex.test(str)); // true
+str = 'some rabbit';
+console.log(regex.test(str)); // false
+
+
