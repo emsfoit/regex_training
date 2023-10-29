@@ -224,3 +224,11 @@ str = 'some rabbit';
 console.log(regex.test(str)); // false
 
 
+// validation of user signup example
+const patterns = {
+    username: /^[a-zA-Z\d]{5,12}$/,
+    email: /^([a-z\d\.-])+@([a-z\d-])+\.([a-z]){2,8}(\.[a-z]{2,8})?$/,
+    password: /^[a-zA-Z@._-]{8,20}$ /,
+    phone: /^[0-9]{11}$/,
+    profile_slug: /^[a-zA-Z0-9-]{9,20}$/
+}
